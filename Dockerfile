@@ -36,4 +36,4 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | b
 RUN . ${HOME}/.nvm/nvm.sh && nvm install v16 && npm i -g npm yarn firebase-tools
 
 # Install app-tools
-RUN GOPATH=${GOPATH} go install github.com/qqiao/app-tools
+RUN GOPATH=${GOPATH} go install github.com/qqiao/app-tools@latest
