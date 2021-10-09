@@ -32,7 +32,7 @@ RUN gcloud components update && gcloud components install app-engine-go && \
 RUN rm install.sh
 
 # Install nvm
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 RUN . ${HOME}/.nvm/nvm.sh && nvm install v16 && npm i -g npm yarn firebase-tools
 
 # Install app-tools
