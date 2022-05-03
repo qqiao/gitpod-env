@@ -27,6 +27,8 @@ RUN rm install.sh
 
 # Install app-tools
 RUN GOPATH=$HOME/go-packages go install -v github.com/qqiao/app-tools@latest
+RUN GOPATH=$HOME/go-packages go install -v honnef.co/go/tools/cmd/staticcheck@latest
+RUN GOPATH=$HOME/go-packages go install -v golang.org/x/tools/...@latest
 
 # Install base npm packages
 RUN npm i -g npm yarn firebase-tools
