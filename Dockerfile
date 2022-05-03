@@ -2,7 +2,12 @@ FROM golang:latest
 
 # Update packages
 RUN apt-get -y update && apt-get -y dist-upgrade && \
-    apt-get -y install curl gnupg build-essential git less nano default-jdk
+    apt-get -y install curl gnupg build-essential git less nano default-jdk apt-utils
+
+RUN curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+RUN apt-get -y update
+RUN apt-get -y install gh
 
 # Create the gitpod user
 RUN useradd -l -u 33333 -G sudo -md /home/gitpod -s /bin/bash -p gitpod gitpod
